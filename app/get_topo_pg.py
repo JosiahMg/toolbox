@@ -104,6 +104,7 @@ class GetTopoPG:
         pipe_df.to_csv(os.path.join(self.origin_data_path, 'pipes.csv'), index=False)
         node_df.to_csv(os.path.join(self.origin_data_path, 'nodes.csv'), index=False)
         logger.debug(f'save {self.topology_id} origin topology data to {self.origin_data_path}')
+        return self.origin_data_path
 
     def add_area_to_pipes(self):
         """ 将稳态分割得到的area信息合并到pipes.csv中 """
@@ -130,6 +131,7 @@ class GetTopoPG:
 
     def execute(self):
         # Step1: 从数据库拉取数据
-        self.get_topo_sql()
+        filepath = self.get_topo_sql()
         # Step2: 添加area_no到pipes
         self.add_area_to_pipes()
+        return filepath

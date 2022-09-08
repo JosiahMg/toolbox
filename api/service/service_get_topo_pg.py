@@ -27,4 +27,4 @@ class ServiceGetTopoPG:
             raise Exception('topology_id is required')
 
     def execute(self):
-        self.operator.execute()
+        return self.operator.execute()
