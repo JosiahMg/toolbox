@@ -11,6 +11,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro # 设置容器时区与宿主机保持一致
       - ./logs:/usr/src/app/logs
+      - ./resource:/usr/src/app/resource
+      - ./data:/usr/src/app/data
     ports:
       - 3040:8000
     environment:

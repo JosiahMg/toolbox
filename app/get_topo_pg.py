@@ -9,6 +9,8 @@ import pandas as pd
 from conf.path_config import output_dir, resource_dir
 from api.sql.pg_sentence import GetDataFromPG
 from common.common_tool import make_dir_if_not_exists, open_object_general
+from common.common_tool import check_is_in_docker
+
 
 logger = get_logger(__name__)
 

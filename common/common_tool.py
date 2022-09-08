@@ -168,3 +168,14 @@ def fn_timer(function):
         return result
 
     return function_timer
+
+
+def check_is_in_docker():
+    import psutil
+    # if psutil.Process(1).name() == 'docker-init':
+    #     return True
+
+    if os.path.exists('/.dockerenv'):
+        return True
+
+    return False
