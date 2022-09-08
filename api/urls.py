@@ -1,5 +1,6 @@
 from django.urls import path
 from django.http import HttpResponse
+from api.views import get_topo_pg
 
 
 def index(request):
@@ -8,5 +9,5 @@ def index(request):
 
 urlpatterns = [
     path('', index, name='index'),
-    path('reg-fault-analysis/binary-classification', binary_predict.fault_predict),
+    path('get-topo-pg', get_topo_pg.get_topo_pg),
 ]

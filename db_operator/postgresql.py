@@ -1,21 +1,18 @@
 import psycopg2
 from psycopg2 import extras as ex
-from conf.config import PostgresqlConfig
+
 from common.log_utils import get_logger
 
 logger = get_logger(__name__)
 
 
 class PostgreOp(object):
-    def __init__(self, con, postgresql_dict=None):
-        if con == 'area':
-            self.conn = psycopg2.connect(host=postgresql_dict['host'], port=postgresql_dict['port'],
-                                         user=postgresql_dict['user'], password=str(postgresql_dict['password']),
-                                         database=postgresql_dict['db_name'])
-        else:
-            self.conn = psycopg2.connect(host=PostgresqlConfig['host'], port=PostgresqlConfig['port'],
-                                         user=PostgresqlConfig['user'], password=str(PostgresqlConfig['password']),
-                                         database=PostgresqlConfig['db_name'])
+    def __init__(self, postgresql_dict=None):
+        self.conn = psycopg2.connect(host=postgresql_dict['host'],
+                                     port=postgresql_dict['port'],
+                                     user=postgresql_dict['user'],
+                                     password=str(postgresql_dict['password']),
+                                     database=postgresql_dict['db_name'])
         try:
             self.cursor = self.conn.cursor()
         except Exception as e:
