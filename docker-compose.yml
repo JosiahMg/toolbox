@@ -1,0 +1,17 @@
+version: "3.0"
+
+services:
+  reg-fault:
+    image: "tool-boxes:${TAG:-1.1.0}"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: always
+    container_name: "tool-boxes"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro # 设置容器时区与宿主机保持一致
+      - ./logs:/usr/src/app/logs
+    ports:
+      - 8000:8000
+    environment:
+      TZ: "Asia/Shanghai"

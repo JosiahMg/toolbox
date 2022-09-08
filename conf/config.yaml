@@ -1,0 +1,7 @@
+postgresql:
+  host:
+  port: 5432
+  user: admin
+  password: admin
+  db_name: dbname
+  type: com.zaxxer.hikari.HikariDataSource
