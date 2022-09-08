@@ -21,7 +21,7 @@ class GetTopoPG:
         self.output_dir = os.path.join(output_dir, self.topology_id)
         self.stable_topo_dir = os.path.join(resource_dir, self.topology_id)
         # 保存点表和线标文件csv的路径
-        self.origin_data_path = os.path.join(self.output_dir, 'origin_topo')
+        self.origin_data_path = os.path.join(self.output_dir, 'stable_topo')
         # 通过稳态分割的拓扑topology.json 需要通过前端传递过来保存到以下路径
         self.stable_topo_path = os.path.join(self.stable_topo_dir, 'stable_topo')
 
@@ -39,7 +39,7 @@ class GetTopoPG:
         拓扑的点表和线表存在 slsl_data_deliver数据库的 dt_node_merge和 dt_pipeline_merge两个表里
         表中的projectid字段表征属于该区域的点表或线表
         topology_id:
-        - qd_high_merge: 青岛的高压数据
+        - qz_high_merge: 青岛的高压数据
         - dg_zb_mid_merge: 东莞中部中压数据
         - qz_high_merge: 泉州高压数据
         """
