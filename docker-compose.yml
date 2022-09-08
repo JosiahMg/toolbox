@@ -12,6 +12,6 @@ services:
       - /etc/localtime:/etc/localtime:ro # 设置容器时区与宿主机保持一致
       - ./logs:/usr/src/app/logs
     ports:
-      - 8000:8000
+      - 3040:8000
     environment:
       TZ: "Asia/Shanghai"
